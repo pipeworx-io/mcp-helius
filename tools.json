@@ -1,0 +1,69 @@
+[
+  {
+    "name": "helius_parsed_transactions",
+    "description": "Parsed transaction history for a Solana address — human-readable, enriched tx feed (swaps, NFT sales, transfers) with a plain-English description, type, source protocol, fee, and timestamp for each transaction. Deeper than a raw signature list. Example: helius_parsed_transactions({ address: \"86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY\", limit: 20, _apiKey: \"your-key\" })",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "Solana wallet or program address (base58), e.g. \"86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY\""
+        },
+        "limit": {
+          "type": "integer",
+          "description": "Max transactions to return (default 20, max 50)"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Helius API key (free 1M credits/mo at helius.dev)"
+        }
+      },
+      "required": [
+        "address",
+        "_apiKey"
+      ]
+    }
+  },
+  {
+    "name": "helius_assets_by_owner",
+    "description": "Tokens & NFTs owned by a Solana wallet — lists every digital asset (fungible tokens, regular + compressed NFTs) held by an address via the Digital Asset Standard (DAS), with name, symbol, balance, and interface type. Example: helius_assets_by_owner({ address: \"86xCnPeV69n6t3DnyGvkKobf9FdN2H9oiVDdaMpo2MMY\", _apiKey: \"your-key\" })",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "description": "Solana wallet address (base58) whose assets to list"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Helius API key (free 1M credits/mo at helius.dev)"
+        }
+      },
+      "required": [
+        "address",
+        "_apiKey"
+      ]
+    }
+  },
+  {
+    "name": "helius_asset",
+    "description": "Details for a Solana asset/mint — full Digital Asset Standard (DAS) record for a single token or NFT by its mint address: metadata (name/symbol/interface), current ownership, royalty config, and supply. Example: helius_asset({ id: \"F9Lw3ki3hJ7PF9HQXsBzoY8GyE6sPoEZZdXJBsTTD2rk\", _apiKey: \"your-key\" })",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Asset ID — typically the mint address of the token/NFT (base58)"
+        },
+        "_apiKey": {
+          "type": "string",
+          "description": "Helius API key (free 1M credits/mo at helius.dev)"
+        }
+      },
+      "required": [
+        "id",
+        "_apiKey"
+      ]
+    }
+  }
+]
